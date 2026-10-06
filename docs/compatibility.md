@@ -1,6 +1,30 @@
 # Pi Compatibility
 
-SoL-Pi is developed and tested against `@earendil-works/pi-coding-agent` 0.85.1 and remains compatible with the originally supported 0.84.2 release. The current 19 test files (140 tests), type checking, package inspection, public API checks, and offline extension startup passed on both releases. Previous checks covered the public API surface of Pi 0.81.1, the base used by the original Pi fork; they are not a current full-suite compatibility guarantee. The runtime range is deliberately expressed as a peer dependency because Pi owns installation and upgrade of its packages; it is not a guarantee for every Pi version.
+> **Fleet fork note.** This checkout is the Fleet-maintained fork
+> `sol-pi-fleet`, based on `NVlabs/SoL-Pi@e1a586af0ad8956f42ae5b26bba20e48fbf30e00`.
+> It carries the minimal Pi 1.0.x compatibility patch described below (see
+> `FORK.md`). Upstream SoL-Pi at that base is developed and tested against
+> `@earendil-works/pi-coding-agent` 0.85.1 and is **not** compatible with Pi
+> 1.0.x. The compatibility statement in this paragraph is the fork's, not
+> upstream's.
+
+This fork is validated against `@earendil-works/pi-coding-agent` 1.0.4. The
+full suite (21 test files, 195 tests), type checking, package inspection and the
+Pi `AgentSession` integration test pass on 1.0.4. It remains developed from the
+0.85.1 base and is not a guarantee for every Pi version; the runtime range is
+deliberately expressed as a peer dependency because Pi owns installation and
+upgrade of its packages.
+
+The Pi 1.0.x divergence is confined to two API changes and is documented in
+`FORK.md`:
+
+- tool definitions receive `ExtensionToolContext` (not `ExtensionContext`);
+- tool failures are reported with `isError: true` on the result instead of being
+  thrown, so Action Fusion detects a failed `then_run` by inspecting the result.
+
+Statements below that name Pi `0.85.1` describe the base behaviour inherited
+from upstream; where they conflict with 1.0.4 semantics, the `FORK.md`
+divergence wins.
 
 SoL-Pi imports only public package exports:
 

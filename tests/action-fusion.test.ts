@@ -6,7 +6,7 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { BashOperations, ExtensionAPI, ExtensionContext, ToolDefinition } from "@earendil-works/pi-coding-agent";
+import type { BashOperations, ExtensionAPI, ExtensionContext, ExtensionToolContext, ToolDefinition } from "@earendil-works/pi-coding-agent";
 import {
 	type ActionFusionOptions,
 	assertUnchangedBeforeCommand,
@@ -53,7 +53,7 @@ function loadFusedTools(options?: ActionFusionOptions): FusedTools {
 	return { edit, write };
 }
 
-function createContext(cwd: string, overrides: Partial<ExtensionContext> = {}): ExtensionContext {
+function createContext(cwd: string, overrides: Partial<ExtensionContext> = {}): ExtensionToolContext {
 	return {
 		mode: "json",
 		hasUI: false,
@@ -64,8 +64,12 @@ function createContext(cwd: string, overrides: Partial<ExtensionContext> = {}): 
 			getSessionId: () => "action-fusion-test",
 		},
 		ui: {},
+		tools: [],
+		executeTool: async () => {
+			throw new Error("executeTool is not available in the test context");
+		},
 		...overrides,
-	} as unknown as ExtensionContext;
+	} as unknown as ExtensionToolContext;
 }
 
 const tempDirs: string[] = [];
