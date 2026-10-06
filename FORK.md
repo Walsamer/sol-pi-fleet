@@ -13,10 +13,13 @@ minimal compatibility change required to run SoL-Pi on a Pi release at or after
 | Upstream | `https://github.com/NVlabs/SoL-Pi` |
 | Upstream base commit | `e1a586af0ad8956f42ae5b26bba20e48fbf30e00` (2026-10-01) |
 | Fork name | `sol-pi-fleet` |
-| Fork owner | Fleet (dev-ops-fleet) |
+| Fork repo | `https://github.com/Walsamer/sol-pi-fleet` |
+| Fork owner | Fleet (`Walsamer/dev-ops-fleet`) |
 | License | MIT (unchanged; `LICENSE` preserved) |
 | Fleet register | `config/integrations.json` → `mode: "fork"`, `fork_repo`, `expected_revision` |
-| First fork commit | _recorded by Fleet when the integration is wired_ |
+| First fork commit | `ed24e5540cec850654a0a586e51381be7fe2a357` |
+| Fork branch | `fleet/sol-pi-1.0` |
+| Consuming fleet | `https://github.com/Walsamer/dev-ops-fleet` (Fleet v3 control repo) |
 
 ## Why a fork (Level-1–4 insufficiency)
 

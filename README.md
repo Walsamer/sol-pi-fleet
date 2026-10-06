@@ -12,6 +12,15 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" /></a>
 </p>
 
+> [!IMPORTANT]
+> **This is `sol-pi-fleet` — a Fleet fork of SoL-Pi.** It is maintained for the
+> [dev-ops-fleet](https://github.com/Walsamer/dev-ops-fleet) execution fleet and used as the
+> SoL-Pi worker runtime for Pi at or after 1.0, which upstream does not support at the pinned
+> base. The only changes are the documented Pi 1.0.x compatibility patch; see
+> [FORK.md](FORK.md) for provenance (upstream URL, exact base commit, MIT license),
+> divergence policy, validation and rollback. Upstream SoL-Pi remains the source of the
+> project; this fork is not an official NVlabs distribution.
+
 > [!NOTE]
 > This repository contains the open-source version of SoL-Pi, a standalone extension for [Pi](https://github.com/earendil-works/pi). It is not an official distribution of Pi.
 
